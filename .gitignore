@@ -14,3 +14,11 @@
 
 # Spring local configuration
 **/application-local.properties
+
+
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
