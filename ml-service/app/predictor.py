@@ -11,9 +11,9 @@ import pandas as pd
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MODEL_PATH = BASE_DIR / "model" / "PS26001_Final_RandomForest_Model.pkl"
+MODEL_PATH = BASE_DIR / "model" / "PS26001_Final_Calibrated_RandomForest_Model.pkl"
 FEATURE_PATH = BASE_DIR / "config" / "feature_list.txt"
-CONFIG_PATH = BASE_DIR / "config" / "model_config.json"
+CONFIG_PATH = BASE_DIR / "config" / "PS26001_Final_Calibrated_Model_Config.json"
 
 
 # ============================================================
