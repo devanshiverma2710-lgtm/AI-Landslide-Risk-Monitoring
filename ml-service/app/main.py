@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from app.predictor import FEATURES, THRESHOLD, predict_landslide
+from app.explainer import explain_prediction
 
 
 # ============================================================
@@ -91,4 +92,16 @@ def predict(data: LandslideInput):
     else:
         input_data = data.dict()
 
-    return predict_landslide(input_data)
+    # Get normal ML prediction
+    result = predict_landslide(input_data)
+
+    # Generate SHAP explanation
+    top_factors = explain_prediction(
+        input_data,
+        top_n=5
+    )
+
+    # Add explanation to API response
+    result["top_factors"] = top_factors
+
+    return result
