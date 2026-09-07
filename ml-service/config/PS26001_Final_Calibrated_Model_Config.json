@@ -1,0 +1,57 @@
+{
+    "model_name": "Random Forest",
+    "model_type": "CalibratedClassifierCV",
+    "base_estimator": "RandomForestClassifier",
+    "calibration_method": "sigmoid",
+    "calibration_cv": 5,
+    "n_estimators": 500,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "threshold": 0.5,
+    "risk_bands": {
+        "LOW": {
+            "min": 0.0,
+            "max": 0.25
+        },
+        "MODERATE": {
+            "min": 0.25,
+            "max": 0.5
+        },
+        "HIGH": {
+            "min": 0.5,
+            "max": 0.75
+        },
+        "CRITICAL": {
+            "min": 0.75,
+            "max": 1.0
+        }
+    },
+    "training_samples": 1184,
+    "positive_samples": 592,
+    "negative_samples": 592,
+    "features": [
+        "elevation_m",
+        "slope_deg",
+        "aspect_sin",
+        "aspect_cos",
+        "curvature",
+        "rainfall_1d_mm",
+        "rainfall_3d_mm",
+        "rainfall_7d_mm",
+        "max_rainfall_7d_mm",
+        "rainfall_anomaly_z",
+        "soil_moisture_m3_m3",
+        "soil_moisture_anomaly",
+        "historical_landslide_density",
+        "historical_event_frequency",
+        "land_cover_class",
+        "ndvi",
+        "distance_to_road_km",
+        "distance_to_river_km",
+        "distance_to_fault_km",
+        "population_density",
+        "settlement_exposure"
+    ],
+    "validation_note": "Calibration improved Brier score and Log Loss on the held-out real-data experiment. Spatial and temporal generalization remain limitations of the current prototype dataset.",
+    "deployment_note": "Environmental fields currently marked as prototype estimates should be replaced by authoritative/live observations before production deployment."
+}

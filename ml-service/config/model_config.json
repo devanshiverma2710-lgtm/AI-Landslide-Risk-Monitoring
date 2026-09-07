@@ -1,0 +1,18 @@
+{
+    "model": "Random Forest",
+    "n_estimators": 500,
+    "class_weight": "balanced",
+    "random_state": 42,
+    "classification_threshold": 0.5,
+    "risk_thresholds": {
+        "LOW": "< 0.25",
+        "MODERATE": "0.25 - < 0.50",
+        "HIGH": "0.50 - < 0.75",
+        "CRITICAL": ">= 0.75"
+    },
+    "n_features": 21,
+    "training_samples": 1184,
+    "positive_samples": 592,
+    "negative_samples": 592,
+    "validation_note": "Model benchmarked using random, date-grouped, and spatial-grouped validation. Prototype environmental fields should be replaced with live/authoritative observations for deployment."
+}
